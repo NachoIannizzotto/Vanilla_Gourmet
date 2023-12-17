@@ -17,10 +17,7 @@
   },
   "criteria": {
     "intro": {
-      "trigger": "minecraft:changed_dimension",
-      "conditions": {
-        "to": "minecraft:overworld"
-      }
+      "trigger": "minecraft:tick"
     }
   }
 }
