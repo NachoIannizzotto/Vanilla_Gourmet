@@ -1,0 +1,54 @@
+{
+  "mod_elements": [
+    {
+      "name": "Intro",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "intro",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/advancements/intro.json"
+        ]
+      },
+      "path": "~/Achievements"
+    }
+  ],
+  "variable_elements": [],
+  "sound_elements": [],
+  "language_map": {
+    "en_us": {
+      "advancements.intro.descr": "Enjoy this adventure!",
+      "advancements.intro.title": "Welcome to Vanilla Gourmet!"
+    }
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Achievements",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "vanilla_gourmet",
+    "modName": "Vanilla Gourmet",
+    "version": "1.0.0",
+    "description": "UwU",
+    "author": "Siegreich and Arrow",
+    "websiteURL": "https://mcreator.net",
+    "license": "Academic Free License v3.0",
+    "disableForgeVersionCheck": true,
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "credits": "Enjoy multiple new foods, enemies and more!",
+    "modElementsPackage": "vanillagourmet",
+    "lockBaseModFiles": false
+  },
+  "mcreatorVersion": 202300336712
+}

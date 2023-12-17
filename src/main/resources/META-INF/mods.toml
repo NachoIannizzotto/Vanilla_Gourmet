@@ -1,0 +1,23 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Academic Free License v3.0"
+
+[[mods]]
+modId="vanilla_gourmet"
+version="1.0.0"
+displayName="Vanilla Gourmet"
+credits="Enjoy multiple new foods, enemies and more!"
+displayURL="https://mcreator.net"
+authors="Siegreich and Arrow"
+description="UwU"
+
+[[dependencies.vanilla_gourmet]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1]"
+    ordering="NONE"
+    side="BOTH"
+
+
+
+
