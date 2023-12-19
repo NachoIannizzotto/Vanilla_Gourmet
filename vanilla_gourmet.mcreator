@@ -3,6 +3,7 @@
     {
       "name": "Intro",
       "type": "achievement",
+      "sortid": 2,
       "compiles": true,
       "locked_code": false,
       "registry_name": "intro",
@@ -12,6 +13,20 @@
         ]
       },
       "path": "~/Achievements"
+    },
+    {
+      "name": "Jelly",
+      "type": "recipe",
+      "sortid": 1,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jelly",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/recipes/jelly.json"
+        ]
+      },
+      "path": "~/Recipes"
     }
   ],
   "variable_elements": [],
@@ -27,6 +42,14 @@
     "children": [
       {
         "name": "Achievements",
+        "children": []
+      },
+      {
+        "name": "Recipes",
+        "children": []
+      },
+      {
+        "name": "Biomes",
         "children": []
       }
     ]
