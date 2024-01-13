@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "vanilla_gourmet:block/chocolate",
+    "up": "vanilla_gourmet:block/chocolate",
+    "north": "vanilla_gourmet:block/chocolate",
+    "east": "vanilla_gourmet:block/chocolate",
+    "south": "vanilla_gourmet:block/chocolate",
+    "west": "vanilla_gourmet:block/chocolate",
+    "particle": "vanilla_gourmet:block/chocolate"
+  },
+  "render_type": "solid"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "vanilla_gourmet:chocolate_land",
+  "features": "vanilla_gourmet:candy_tree",
+  "step": "vegetal_decoration"
+}

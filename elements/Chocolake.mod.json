@@ -1,0 +1,13 @@
+{
+  "_fv": 57,
+  "_type": "feature",
+  "definition": {
+    "generationStep": "FLUID_SPRINGS",
+    "restrictionBiomes": [
+      {
+        "value": "CUSTOM:ChocolateLand"
+      }
+    ],
+    "featurexml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"feature_container\" deletable=\"false\" x=\"40\" y=\"40\"><value name=\"feature\"><block type=\"feature_lake\"><value name=\"fluid\"><block type=\"mcitem_allblocks\"><field name=\"value\">CUSTOM:Chocolate</field></block></value><value name=\"border\"><block type=\"mcitem_allblocks\"><field name=\"value\">CUSTOM:Chocolateblock</field></block></value></block></value><next><block type=\"placement_rarity\"><field name=\"rarity\">3</field><next><block type=\"placement_in_square\"><next><block type=\"placement_heightmap\"><field name=\"heightmap\">OCEAN_FLOOR_WG</field></block></next></block></next></block></next></block></xml>"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "_fv": 57,
+  "_type": "biome",
+  "definition": {
+    "name": "Chocolate Land",
+    "groundBlock": {
+      "value": "CUSTOM:Chocolateblock"
+    },
+    "undergroundBlock": {
+      "value": "CUSTOM:Chocolateblock"
+    },
+    "underwaterBlock": {
+      "value": "CUSTOM:Chocolateblock"
+    },
+    "airColor": {
+      "value": -10079488,
+      "falpha": 0.0
+    },
+    "waterColor": {
+      "value": -10079488,
+      "falpha": 0.0
+    },
+    "waterFogColor": {
+      "value": -10079488,
+      "falpha": 0.0
+    },
+    "ambientSound": {
+      "value": ""
+    },
+    "additionsSound": {
+      "value": ""
+    },
+    "music": {
+      "value": ""
+    },
+    "moodSound": {
+      "value": ""
+    },
+    "moodSoundDelay": 6000,
+    "spawnParticles": false,
+    "particleToSpawn": {
+      "value": "SMOKE_NORMAL"
+    },
+    "particlesProbability": 0.5,
+    "rainingPossibility": 0.5,
+    "temperature": 1.0,
+    "spawnBiome": true,
+    "spawnInCaves": false,
+    "spawnBiomeNether": false,
+    "genTemperature": {
+      "min": -1.0001,
+      "max": 1.0
+    },
+    "genHumidity": {
+      "min": -0.0,
+      "max": 1.0
+    },
+    "genContinentalness": {
+      "min": -1.0,
+      "max": 1.0
+    },
+    "genErosion": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "genWeirdness": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "treesPerChunk": 0,
+    "vanillaTreeType": "Default",
+    "treeType": 0,
+    "minHeight": 6,
+    "treeStem": {
+      "value": "CUSTOM:Candyblock"
+    },
+    "treeBranch": {
+      "value": "Blocks.AIR"
+    },
+    "treeVines": {
+      "value": ""
+    },
+    "treeFruits": {
+      "value": ""
+    },
+    "defaultFeatures": [
+      "Caves",
+      "Ores",
+      "FrozenTopLayer"
+    ],
+    "spawnStronghold": false,
+    "spawnMineshaft": true,
+    "spawnMineshaftMesa": true,
+    "spawnPillagerOutpost": false,
+    "villageType": "plains",
+    "spawnWoodlandMansion": false,
+    "spawnJungleTemple": false,
+    "spawnDesertPyramid": false,
+    "spawnSwampHut": false,
+    "spawnIgloo": false,
+    "spawnOceanMonument": false,
+    "spawnShipwreck": false,
+    "spawnShipwreckBeached": false,
+    "spawnBuriedTreasure": false,
+    "oceanRuinType": "NONE",
+    "spawnNetherBridge": false,
+    "spawnNetherFossil": false,
+    "spawnBastionRemnant": false,
+    "spawnEndCity": false,
+    "spawnRuinedPortal": "STANDARD",
+    "spawnEntries": []
+  }
+}

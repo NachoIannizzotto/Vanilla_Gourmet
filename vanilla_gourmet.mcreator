@@ -27,13 +27,311 @@
         ]
       },
       "path": "~/Recipes"
+    },
+    {
+      "name": "Chocolateblock",
+      "type": "block",
+      "sortid": 3,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolateblock",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/vanilla_gourmet/models/item/chocolateblock.json",
+          "src/main/resources/assets/vanilla_gourmet/models/block/chocolateblock.json",
+          "src/main/java/vanillagourmet/block/ChocolateblockBlock.java",
+          "src/main/resources/assets/vanilla_gourmet/blockstates/chocolateblock.json"
+        ]
+      },
+      "path": "~/Blocks/Chocolate"
+    },
+    {
+      "name": "Candyblock",
+      "type": "block",
+      "sortid": 4,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candyblock",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/vanilla_gourmet/models/block/candyblock.json",
+          "src/main/resources/assets/vanilla_gourmet/blockstates/candyblock.json",
+          "src/main/resources/assets/vanilla_gourmet/models/item/candyblock.json",
+          "src/main/java/vanillagourmet/block/CandyblockBlock.java"
+        ]
+      },
+      "path": "~/Blocks/Candy"
+    },
+    {
+      "name": "ChocolateLand",
+      "type": "biome",
+      "sortid": 5,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate_land",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/worldgen/biome/chocolate_land.json"
+        ]
+      },
+      "path": "~/Biomes"
+    },
+    {
+      "name": "CandyTree",
+      "type": "feature",
+      "sortid": 6,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "candy_tree",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/candy_tree_biome_modifier.json",
+          "src/main/resources/data/vanilla_gourmet/worldgen/configured_feature/candy_tree.json",
+          "src/main/resources/data/vanilla_gourmet/worldgen/placed_feature/candy_tree.json"
+        ]
+      },
+      "path": "~/Biomes"
+    },
+    {
+      "name": "Chocolate",
+      "type": "fluid",
+      "sortid": 7,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolate",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/item/ChocolateItem.java",
+          "src/main/resources/assets/vanilla_gourmet/models/block/chocolate.json",
+          "src/main/resources/assets/vanilla_gourmet/blockstates/chocolate.json",
+          "src/main/java/vanillagourmet/fluid/ChocolateFluid.java",
+          "src/main/java/vanillagourmet/block/ChocolateBlock.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/chocolate_bucket.json",
+          "src/main/java/vanillagourmet/fluid/types/ChocolateFluidType.java"
+        ]
+      },
+      "path": "~/Liquids"
+    },
+    {
+      "name": "Chocolake",
+      "type": "feature",
+      "sortid": 8,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "chocolake",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/chocolake_biome_modifier.json",
+          "src/main/resources/data/vanilla_gourmet/worldgen/configured_feature/chocolake.json",
+          "src/main/resources/data/vanilla_gourmet/worldgen/placed_feature/chocolake.json"
+        ]
+      },
+      "path": "~/Biomes"
+    },
+    {
+      "name": "Vanillagourmet",
+      "type": "dimension",
+      "sortid": 9,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "vanillagourmet",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/dimension_type/vanillagourmet.json",
+          "src/main/java/vanillagourmet/item/VanillagourmetItem.java",
+          "src/main/resources/assets/vanilla_gourmet/models/block/vanillagourmet_portal_ns.json",
+          "src/main/java/vanillagourmet/world/teleporter/VanillagourmetPortalShape.java",
+          "src/main/resources/data/vanilla_gourmet/dimension/vanillagourmet.json",
+          "src/main/java/vanillagourmet/world/teleporter/VanillagourmetTeleporter.java",
+          "src/main/java/vanillagourmet/block/VanillagourmetPortalBlock.java",
+          "src/main/resources/assets/vanilla_gourmet/models/block/vanillagourmet_portal_ew.json",
+          "src/main/resources/assets/vanilla_gourmet/blockstates/vanillagourmet_portal.json",
+          "src/main/java/vanillagourmet/world/dimension/VanillagourmetDimension.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/vanillagourmet.json"
+        ]
+      },
+      "path": "~/Dimensions"
+    },
+    {
+      "name": "Bulker",
+      "type": "animatedentity",
+      "sortid": 10,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bulker",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/vanilla_gourmet/models/item/bulker_spawn_egg.json",
+          "src/main/java/vanillagourmet/entity/model/BulkerModel.java",
+          "src/main/java/vanillagourmet/entity/BulkerEntity.java",
+          "src/main/java/vanillagourmet/client/renderer/BulkerRenderer.java",
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/bulker_biome_modifier.json"
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "BulkerVariant",
+      "type": "procedure",
+      "sortid": 11,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bulker_variant",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/BulkerVariantProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "CaveBulker",
+      "type": "animatedentity",
+      "sortid": 12,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_bulker",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java",
+          "src/main/java/vanillagourmet/entity/model/CaveBulkerModel.java",
+          "src/main/java/vanillagourmet/client/renderer/CaveBulkerRenderer.java",
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/cave_bulker_biome_modifier.json",
+          "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "CaveBulkerOnInitialEntitySpawn",
+      "type": "procedure",
+      "sortid": 13,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_bulker_on_initial_entity_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/CaveBulkerOnInitialEntitySpawnProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "CaveBulkerSit",
+      "type": "procedure",
+      "sortid": 14,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_bulker_sit",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/vanillagourmet/procedures/CaveBulkerSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "CaveBulkerCall",
+      "type": "procedure",
+      "sortid": 15,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_bulker_call",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/CaveBulkerCallProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Mobs/Neutral"
+    },
+    {
+      "name": "BulkerA",
+      "type": "achievement",
+      "sortid": 16,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "bulker_a",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/advancements/bulker_a.json"
+        ]
+      },
+      "path": "~/Achievements/MobAchievements"
+    },
+    {
+      "name": "CaveBulkerAchievement",
+      "type": "procedure",
+      "sortid": 17,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_bulker_achievement",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/CaveBulkerAchievementProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Achievements/MobAchievements"
     }
   ],
   "variable_elements": [],
   "sound_elements": [],
   "language_map": {
     "en_us": {
+      "entity.vanilla_gourmet.cave_bulker": "Cave Bulker",
       "advancements.intro.descr": "Enjoy this adventure!",
+      "block.vanilla_gourmet.candyblock": "Candy Block",
+      "subtitles.philllober": "None",
+      "item.vanilla_gourmet.cave_bulker_spawn_egg": "Cave Bulker Spawn Egg",
+      "entity.vanilla_gourmet.bulker": "Bulker",
+      "advancements.bulker_a.title": "Armored!",
+      "fluid.vanilla_gourmet.chocolate": "Chocolate",
+      "item.vanilla_gourmet.chocolate_bucket": "Chocolate Bucket",
+      "item.vanilla_gourmet.vanillagourmet": "Vanillagourmet Portal Igniter",
+      "item.vanilla_gourmet.bulker_spawn_egg": "Bulker Spawn Egg",
+      "subtitles.weruletheworld": "none",
+      "biome.vanilla_gourmet.chocolate_land": "Chocolate Land",
+      "block.vanilla_gourmet.chocolateblock": "Chocolate",
+      "block.vanilla_gourmet.chocolate": "Chocolate",
+      "advancements.bulker_a.descr": "You found a Cave Bulker!",
       "advancements.intro.title": "Welcome to Vanilla Gourmet!"
     }
   },
@@ -42,7 +340,12 @@
     "children": [
       {
         "name": "Achievements",
-        "children": []
+        "children": [
+          {
+            "name": "MobAchievements",
+            "children": []
+          }
+        ]
       },
       {
         "name": "Recipes",
@@ -50,6 +353,44 @@
       },
       {
         "name": "Biomes",
+        "children": []
+      },
+      {
+        "name": "Mobs",
+        "children": [
+          {
+            "name": "Pets",
+            "children": []
+          },
+          {
+            "name": "Neutral",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Dugeons",
+        "children": []
+      },
+      {
+        "name": "Blocks",
+        "children": [
+          {
+            "name": "Chocolate",
+            "children": []
+          },
+          {
+            "name": "Candy",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Liquids",
+        "children": []
+      },
+      {
+        "name": "Dimensions",
         "children": []
       }
     ]
@@ -67,11 +408,13 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "geckolib"
+    ],
     "currentGenerator": "forge-1.20.1",
     "credits": "Enjoy multiple new foods, enemies and more!",
     "modElementsPackage": "vanillagourmet",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202300336712
+  "mcreatorVersion": 202300452316
 }

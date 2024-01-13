@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "vanilla_gourmet:block/vanillagourmet_portal_ew"
+    },
+    "axis=x": {
+      "model": "vanilla_gourmet:block/vanillagourmet_portal_ns"
+    }
+  }
+}

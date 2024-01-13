@@ -1,4 +1,19 @@
 {
+  "entity.vanilla_gourmet.cave_bulker": "Cave Bulker",
   "advancements.intro.descr": "Enjoy this adventure!",
+  "block.vanilla_gourmet.candyblock": "Candy Block",
+  "subtitles.philllober": "None",
+  "item.vanilla_gourmet.cave_bulker_spawn_egg": "Cave Bulker Spawn Egg",
+  "entity.vanilla_gourmet.bulker": "Bulker",
+  "advancements.bulker_a.title": "Armored!",
+  "fluid.vanilla_gourmet.chocolate": "Chocolate",
+  "item.vanilla_gourmet.chocolate_bucket": "Chocolate Bucket",
+  "item.vanilla_gourmet.vanillagourmet": "Vanillagourmet Portal Igniter",
+  "item.vanilla_gourmet.bulker_spawn_egg": "Bulker Spawn Egg",
+  "subtitles.weruletheworld": "none",
+  "biome.vanilla_gourmet.chocolate_land": "Chocolate Land",
+  "block.vanilla_gourmet.chocolateblock": "Chocolate",
+  "block.vanilla_gourmet.chocolate": "Chocolate",
+  "advancements.bulker_a.descr": "You found a Cave Bulker!",
   "advancements.intro.title": "Welcome to Vanilla Gourmet!"
 }

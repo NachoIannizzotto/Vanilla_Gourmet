@@ -13,6 +13,13 @@
  */
 package vanillagourmet;
 
+import vanillagourmet.init.VanillaGourmetModTabs;
+import vanillagourmet.init.VanillaGourmetModItems;
+import vanillagourmet.init.VanillaGourmetModFluids;
+import vanillagourmet.init.VanillaGourmetModFluidTypes;
+import vanillagourmet.init.VanillaGourmetModEntities;
+import vanillagourmet.init.VanillaGourmetModBlocks;
+
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
@@ -47,6 +54,15 @@ public class VanillaGourmetMod {
 		MinecraftForge.EVENT_BUS.register(this);
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+		VanillaGourmetModBlocks.REGISTRY.register(bus);
+
+		VanillaGourmetModItems.REGISTRY.register(bus);
+		VanillaGourmetModEntities.REGISTRY.register(bus);
+
+		VanillaGourmetModTabs.REGISTRY.register(bus);
+
+		VanillaGourmetModFluids.REGISTRY.register(bus);
+		VanillaGourmetModFluidTypes.REGISTRY.register(bus);
 	}
 
 	private static final String PROTOCOL_VERSION = "1";

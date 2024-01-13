@@ -1,0 +1,18 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "snowy_slopes",
+    "snowy_beach",
+    "snowy_plains",
+    "snowy_taiga",
+    "old_growth_pine_taiga",
+    "old_growth_spruce_taiga",
+    "taiga"
+  ],
+  "spawners": {
+    "type": "vanilla_gourmet:bulker",
+    "weight": 30,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

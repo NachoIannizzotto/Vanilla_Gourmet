@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "vanilla_gourmet:block/candy_cane_block_v2",
+    "up": "vanilla_gourmet:block/candy_cane_block_v2",
+    "north": "vanilla_gourmet:block/candy_cane_block_v2",
+    "east": "vanilla_gourmet:block/candy_cane_block_v2",
+    "south": "vanilla_gourmet:block/candy_cane_block_v2",
+    "west": "vanilla_gourmet:block/candy_cane_block_v2",
+    "particle": "vanilla_gourmet:block/candy_cane_block_v2"
+  },
+  "render_type": "solid"
+}

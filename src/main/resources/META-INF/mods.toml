@@ -6,8 +6,8 @@ license="Academic Free License v3.0"
 modId="vanilla_gourmet"
 version="1.0.0"
 displayName="Vanilla Gourmet"
-credits="Enjoy multiple new foods, enemies and more!"
 displayURL="https://mcreator.net"
+credits="Enjoy multiple new foods, enemies and more!"
 authors="Siegreich and Arrow"
 description="UwU"
 
@@ -20,4 +20,10 @@ description="UwU"
 
 
 
+[[dependencies.vanilla_gourmet]]
+    modId="geckolib"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
 

@@ -2,20 +2,20 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "012",
-    " 4 "
+    "abc",
+    " d "
   ],
   "key": {
-    "0": {
+    "a": {
       "item": "minecraft:glow_berries"
     },
-    "1": {
+    "b": {
       "item": "minecraft:axolotl_bucket"
     },
-    "2": {
+    "c": {
       "item": "minecraft:blaze_powder"
     },
-    "4": {
+    "d": {
       "item": "minecraft:bowl"
     }
   },
