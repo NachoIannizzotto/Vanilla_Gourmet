@@ -1,0 +1,14 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "bamboo_jungle",
+    "jungle",
+    "sparse_jungle"
+  ],
+  "spawners": {
+    "type": "vanilla_gourmet:jump_spider",
+    "weight": 50,
+    "minCount": 1,
+    "maxCount": 2
+  }
+}

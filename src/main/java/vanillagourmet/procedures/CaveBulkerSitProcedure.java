@@ -1,21 +1,18 @@
 package vanillagourmet.procedures;
 
-import net.minecraft.world.level.LevelAccessor;
-import net.minecraft.network.chat.Component;
+import vanillagourmet.entity.CaveBulkerEntity;
+
+import net.minecraft.world.entity.Entity;
 
 public class CaveBulkerSitProcedure {
-	public static boolean execute(LevelAccessor world) {
-		boolean bsit = false;
-		if (bsit) {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("Sit down " + bsit)), false);
+	public static boolean execute(Entity entity) {
+		if (entity == null)
 			return false;
-		} else if (bsit == false) {
-			if (!world.isClientSide() && world.getServer() != null)
-				world.getServer().getPlayerList().broadcastSystemMessage(Component.literal(("Standing " + bsit)), false);
-			bsit = false;
+		if ((entity instanceof CaveBulkerEntity _datEntL0 && _datEntL0.getEntityData().get(CaveBulkerEntity.DATA_bulkerSit)) == true) {
+			return false;
+		} else if ((entity instanceof CaveBulkerEntity _datEntL1 && _datEntL1.getEntityData().get(CaveBulkerEntity.DATA_bulkerSit)) == false) {
 			return true;
 		}
-		return true;
+		return false;
 	}
 }

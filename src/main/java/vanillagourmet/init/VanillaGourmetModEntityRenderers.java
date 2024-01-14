@@ -4,8 +4,10 @@
  */
 package vanillagourmet.init;
 
+import vanillagourmet.client.renderer.JumpSpiderRenderer;
 import vanillagourmet.client.renderer.CaveBulkerRenderer;
 import vanillagourmet.client.renderer.BulkerRenderer;
+import vanillagourmet.client.renderer.AbominationRenderer;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,5 +20,7 @@ public class VanillaGourmetModEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(VanillaGourmetModEntities.BULKER.get(), BulkerRenderer::new);
 		event.registerEntityRenderer(VanillaGourmetModEntities.CAVE_BULKER.get(), CaveBulkerRenderer::new);
+		event.registerEntityRenderer(VanillaGourmetModEntities.JUMP_SPIDER.get(), JumpSpiderRenderer::new);
+		event.registerEntityRenderer(VanillaGourmetModEntities.ABOMINATION.get(), AbominationRenderer::new);
 	}
 }

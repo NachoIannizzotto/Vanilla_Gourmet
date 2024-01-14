@@ -1,10 +1,9 @@
 
 package vanillagourmet.entity;
 
-import vanillagourmet.procedures.CaveBulkerSitProcedure;
-import vanillagourmet.procedures.CaveBulkerOnInitialEntitySpawnProcedure;
-import vanillagourmet.procedures.CaveBulkerCallProcedure;
-import vanillagourmet.procedures.CaveBulkerAchievementProcedure;
+import vanillagourmet.procedures.SpiderVariantProcedure;
+import vanillagourmet.procedures.JumpSpiderSitProcedure;
+import vanillagourmet.procedures.JumpSpiderCallProcedure;
 
 import vanillagourmet.init.VanillaGourmetModEntities;
 
@@ -29,21 +28,16 @@ import net.minecraft.world.item.SpawnEggItem;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.monster.Zombie;
-import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.OwnerHurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.world.entity.ai.goal.FollowOwnerGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
-import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.TamableAnimal;
@@ -58,13 +52,13 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.Difficulty;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.sounds.SoundEvent;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -79,24 +73,24 @@ import javax.annotation.Nullable;
 
 import java.util.List;
 
-public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
-	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(CaveBulkerEntity.class, EntityDataSerializers.BOOLEAN);
-	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(CaveBulkerEntity.class, EntityDataSerializers.STRING);
-	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(CaveBulkerEntity.class, EntityDataSerializers.STRING);
-	public static final EntityDataAccessor<Boolean> DATA_bulkerSit = SynchedEntityData.defineId(CaveBulkerEntity.class, EntityDataSerializers.BOOLEAN);
+public class JumpSpiderEntity extends TamableAnimal implements GeoEntity {
+	public static final EntityDataAccessor<Boolean> SHOOT = SynchedEntityData.defineId(JumpSpiderEntity.class, EntityDataSerializers.BOOLEAN);
+	public static final EntityDataAccessor<String> ANIMATION = SynchedEntityData.defineId(JumpSpiderEntity.class, EntityDataSerializers.STRING);
+	public static final EntityDataAccessor<String> TEXTURE = SynchedEntityData.defineId(JumpSpiderEntity.class, EntityDataSerializers.STRING);
+	public static final EntityDataAccessor<Boolean> DATA_spiderSit = SynchedEntityData.defineId(JumpSpiderEntity.class, EntityDataSerializers.BOOLEAN);
 	private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 	private boolean swinging;
 	private boolean lastloop;
 	private long lastSwing;
 	public String animationprocedure = "empty";
 
-	public CaveBulkerEntity(PlayMessages.SpawnEntity packet, Level world) {
-		this(VanillaGourmetModEntities.CAVE_BULKER.get(), world);
+	public JumpSpiderEntity(PlayMessages.SpawnEntity packet, Level world) {
+		this(VanillaGourmetModEntities.JUMP_SPIDER.get(), world);
 	}
 
-	public CaveBulkerEntity(EntityType<CaveBulkerEntity> type, Level world) {
+	public JumpSpiderEntity(EntityType<JumpSpiderEntity> type, Level world) {
 		super(type, world);
-		xpReward = 20;
+		xpReward = 5;
 		setNoAi(false);
 	}
 
@@ -105,8 +99,8 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 		super.defineSynchedData();
 		this.entityData.define(SHOOT, false);
 		this.entityData.define(ANIMATION, "undefined");
-		this.entityData.define(TEXTURE, "cavebulkera");
-		this.entityData.define(DATA_bulkerSit, false);
+		this.entityData.define(TEXTURE, "jumpspidera");
+		this.entityData.define(DATA_spiderSit, false);
 	}
 
 	public void setTexture(String texture) {
@@ -118,6 +112,11 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	@Override
+	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
+		return 0.3F;
+	}
+
+	@Override
 	public Packet<ClientGamePacketListener> getAddEntityPacket() {
 		return NetworkHooks.getEntitySpawningPacket(this);
 	}
@@ -125,7 +124,7 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void registerGoals() {
 		super.registerGoals();
-		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.3, false) {
+		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.4, false) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
 				return 4;
@@ -133,96 +132,83 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 
 		});
-		this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this) {
+		this.targetSelector.addGoal(2, new HurtByTargetGoal(this) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(3, new OwnerHurtByTargetGoal(this) {
+		this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, (float) 0.4) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.3, (float) 2, (float) 6, false) {
+		this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.2, (float) 2, (float) 6, false) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.targetSelector.addGoal(5, new NearestAttackableTargetGoal(this, Player.class, false, true));
-		this.targetSelector.addGoal(6, new NearestAttackableTargetGoal(this, ServerPlayer.class, false, true));
-		this.targetSelector.addGoal(7, new NearestAttackableTargetGoal(this, Zombie.class, false, true) {
+		this.targetSelector.addGoal(5, new OwnerHurtTargetGoal(this) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.targetSelector.addGoal(8, new HurtByTargetGoal(this) {
+		this.goalSelector.addGoal(6, new OwnerHurtByTargetGoal(this) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(9, new AvoidEntityGoal<>(this, Creeper.class, (float) 6, 1, 1.3) {
+		this.goalSelector.addGoal(7, new RandomStrollGoal(this, 1) {
 			@Override
 			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
+				double x = JumpSpiderEntity.this.getX();
+				double y = JumpSpiderEntity.this.getY();
+				double z = JumpSpiderEntity.this.getZ();
+				Entity entity = JumpSpiderEntity.this;
+				Level world = JumpSpiderEntity.this.level();
+				return super.canUse() && JumpSpiderCallProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(10, new RandomStrollGoal(this, 1) {
-			@Override
-			public boolean canUse() {
-				double x = CaveBulkerEntity.this.getX();
-				double y = CaveBulkerEntity.this.getY();
-				double z = CaveBulkerEntity.this.getZ();
-				Entity entity = CaveBulkerEntity.this;
-				Level world = CaveBulkerEntity.this.level();
-				return super.canUse() && CaveBulkerSitProcedure.execute(entity);
-			}
-		});
-		this.goalSelector.addGoal(11, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(12, new FloatGoal(this));
+		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(9, new FloatGoal(this));
 	}
 
 	@Override
@@ -230,53 +216,42 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 		return MobType.ARTHROPOD;
 	}
 
-	@Override
-	public double getPassengersRidingOffset() {
-		return super.getPassengersRidingOffset() + -0.3;
-	}
-
 	protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
 		super.dropCustomDeathLoot(source, looting, recentlyHitIn);
-		this.spawnAtLocation(new ItemStack(Items.BONE));
+		this.spawnAtLocation(new ItemStack(Items.STRING));
 	}
 
 	@Override
 	public SoundEvent getAmbientSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.shulker.close"));
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.parrot.imitate.spider"));
 	}
 
 	@Override
 	public void playStepSound(BlockPos pos, BlockState blockIn) {
-		this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.shulker.hurt")), 0.15f, 1);
+		this.playSound(ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.spider.step")), 0.15f, 1);
 	}
 
 	@Override
 	public SoundEvent getHurtSound(DamageSource ds) {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.shulker.ambient"));
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.spider.hurt"));
 	}
 
 	@Override
 	public SoundEvent getDeathSound() {
-		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.generic.death"));
+		return ForgeRegistries.SOUND_EVENTS.getValue(new ResourceLocation("entity.spider.death"));
 	}
 
 	@Override
 	public boolean hurt(DamageSource source, float amount) {
-		if (source.getDirectEntity() instanceof AbstractArrow)
+		if (source.is(DamageTypes.FALL))
 			return false;
 		return super.hurt(source, amount);
 	}
 
 	@Override
-	public void die(DamageSource source) {
-		super.die(source);
-		CaveBulkerAchievementProcedure.execute(source.getEntity());
-	}
-
-	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor world, DifficultyInstance difficulty, MobSpawnType reason, @Nullable SpawnGroupData livingdata, @Nullable CompoundTag tag) {
 		SpawnGroupData retval = super.finalizeSpawn(world, difficulty, reason, livingdata, tag);
-		CaveBulkerOnInitialEntitySpawnProcedure.execute(this);
+		SpiderVariantProcedure.execute(this);
 		return retval;
 	}
 
@@ -284,7 +259,7 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 	public void addAdditionalSaveData(CompoundTag compound) {
 		super.addAdditionalSaveData(compound);
 		compound.putString("Texture", this.getTexture());
-		compound.putBoolean("DatabulkerSit", this.entityData.get(DATA_bulkerSit));
+		compound.putBoolean("DataspiderSit", this.entityData.get(DATA_spiderSit));
 	}
 
 	@Override
@@ -292,8 +267,8 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 		super.readAdditionalSaveData(compound);
 		if (compound.contains("Texture"))
 			this.setTexture(compound.getString("Texture"));
-		if (compound.contains("DatabulkerSit"))
-			this.entityData.set(DATA_bulkerSit, compound.getBoolean("DatabulkerSit"));
+		if (compound.contains("DataspiderSit"))
+			this.entityData.set(DATA_spiderSit, compound.getBoolean("DataspiderSit"));
 	}
 
 	@Override
@@ -342,7 +317,7 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 		Entity entity = this;
 		Level world = this.level();
 
-		CaveBulkerCallProcedure.execute(entity, sourceentity);
+		JumpSpiderSitProcedure.execute(entity, sourceentity);
 		return retval;
 	}
 
@@ -359,14 +334,14 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel serverWorld, AgeableMob ageable) {
-		CaveBulkerEntity retval = VanillaGourmetModEntities.CAVE_BULKER.get().create(serverWorld);
+		JumpSpiderEntity retval = VanillaGourmetModEntities.JUMP_SPIDER.get().create(serverWorld);
 		retval.finalizeSpawn(serverWorld, serverWorld.getCurrentDifficultyAt(retval.blockPosition()), MobSpawnType.BREEDING, null, null);
 		return retval;
 	}
 
 	@Override
 	public boolean isFood(ItemStack stack) {
-		return List.of(Items.CHICKEN).contains(stack.getItem());
+		return List.of(Items.SLIME_BALL).contains(stack.getItem());
 	}
 
 	@Override
@@ -376,19 +351,17 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 	}
 
 	public static void init() {
-		SpawnPlacements.register(VanillaGourmetModEntities.CAVE_BULKER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
-				(entityType, world, reason, pos, random) -> (world.getDifficulty() != Difficulty.PEACEFUL && Monster.isDarkEnoughToSpawn(world, pos, random) && Mob.checkMobSpawnRules(entityType, world, reason, pos, random)));
+		SpawnPlacements.register(VanillaGourmetModEntities.JUMP_SPIDER.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+				(entityType, world, reason, pos, random) -> (world.getBlockState(pos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON) && world.getRawBrightness(pos, 0) > 8));
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		AttributeSupplier.Builder builder = Mob.createMobAttributes();
 		builder = builder.add(Attributes.MOVEMENT_SPEED, 0.3);
-		builder = builder.add(Attributes.MAX_HEALTH, 30);
-		builder = builder.add(Attributes.ARMOR, 6);
-		builder = builder.add(Attributes.ATTACK_DAMAGE, 5);
+		builder = builder.add(Attributes.MAX_HEALTH, 10);
+		builder = builder.add(Attributes.ARMOR, 0);
+		builder = builder.add(Attributes.ATTACK_DAMAGE, 1);
 		builder = builder.add(Attributes.FOLLOW_RANGE, 12);
-		builder = builder.add(Attributes.KNOCKBACK_RESISTANCE, 1);
-		builder = builder.add(Attributes.ATTACK_KNOCKBACK, 1.5);
 		return builder;
 	}
 
@@ -397,32 +370,14 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 			if ((event.isMoving() || !(event.getLimbSwingAmount() > -0.15F && event.getLimbSwingAmount() < 0.15F))
 
 			) {
-				return event.setAndContinue(RawAnimation.begin().thenLoop("walk"));
+				return event.setAndContinue(RawAnimation.begin().thenLoop("jumpspider.walk"));
 			}
 			if (this.isDeadOrDying()) {
-				return event.setAndContinue(RawAnimation.begin().thenPlay("death"));
+				return event.setAndContinue(RawAnimation.begin().thenPlay(""));
 			}
-			return event.setAndContinue(RawAnimation.begin().thenLoop("idle"));
+			return event.setAndContinue(RawAnimation.begin().thenLoop("jumpspider.idle"));
 		}
 		return PlayState.STOP;
-	}
-
-	private PlayState attackingPredicate(AnimationState event) {
-		double d1 = this.getX() - this.xOld;
-		double d0 = this.getZ() - this.zOld;
-		float velocity = (float) Math.sqrt(d1 * d1 + d0 * d0);
-		if (getAttackAnim(event.getPartialTick()) > 0f && !this.swinging) {
-			this.swinging = true;
-			this.lastSwing = level().getGameTime();
-		}
-		if (this.swinging && this.lastSwing + 7L <= level().getGameTime()) {
-			this.swinging = false;
-		}
-		if (this.swinging && event.getController().getAnimationState() == AnimationController.State.STOPPED) {
-			event.getController().forceAnimationReset();
-			return event.setAndContinue(RawAnimation.begin().thenPlay("attack"));
-		}
-		return PlayState.CONTINUE;
 	}
 
 	private PlayState procedurePredicate(AnimationState event) {
@@ -456,8 +411,8 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 	@Override
 	protected void tickDeath() {
 		++this.deathTime;
-		if (this.deathTime == 35) {
-			this.remove(CaveBulkerEntity.RemovalReason.KILLED);
+		if (this.deathTime == 20) {
+			this.remove(JumpSpiderEntity.RemovalReason.KILLED);
 			this.dropExperience();
 		}
 	}
@@ -472,9 +427,8 @@ public class CaveBulkerEntity extends TamableAnimal implements GeoEntity {
 
 	@Override
 	public void registerControllers(AnimatableManager.ControllerRegistrar data) {
-		data.add(new AnimationController<>(this, "movement", 2, this::movementPredicate));
-		data.add(new AnimationController<>(this, "attacking", 2, this::attackingPredicate));
-		data.add(new AnimationController<>(this, "procedure", 2, this::procedurePredicate));
+		data.add(new AnimationController<>(this, "movement", 4, this::movementPredicate));
+		data.add(new AnimationController<>(this, "procedure", 4, this::procedurePredicate));
 	}
 
 	@Override

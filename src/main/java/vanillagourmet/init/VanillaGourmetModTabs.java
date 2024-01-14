@@ -29,6 +29,8 @@ public class VanillaGourmetModTabs {
 		if (tabData.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
 			tabData.accept(VanillaGourmetModItems.BULKER_SPAWN_EGG.get());
 			tabData.accept(VanillaGourmetModItems.CAVE_BULKER_SPAWN_EGG.get());
+			tabData.accept(VanillaGourmetModItems.JUMP_SPIDER_SPAWN_EGG.get());
+			tabData.accept(VanillaGourmetModItems.ABOMINATION_SPAWN_EGG.get());
 		}
 
 		if (tabData.getTabKey() == CreativeModeTabs.INGREDIENTS) {

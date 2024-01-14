@@ -242,8 +242,8 @@
         ],
         "dependencies": [
           {
-            "name": "world",
-            "type": "world"
+            "name": "entity",
+            "type": "entity"
           }
         ]
       },
@@ -268,10 +268,6 @@
           {
             "name": "sourceentity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -310,6 +306,132 @@
         ]
       },
       "path": "~/Achievements/MobAchievements"
+    },
+    {
+      "name": "JumpSpider",
+      "type": "animatedentity",
+      "sortid": 18,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jump_spider",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/entity/JumpSpiderEntity.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/jump_spider_spawn_egg.json",
+          "src/main/java/vanillagourmet/client/renderer/JumpSpiderRenderer.java",
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/jump_spider_biome_modifier.json",
+          "src/main/java/vanillagourmet/entity/model/JumpSpiderModel.java"
+        ]
+      },
+      "path": "~/Mobs/Pets"
+    },
+    {
+      "name": "JumpSpiderSit",
+      "type": "procedure",
+      "sortid": 19,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jump_spider_sit",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/JumpSpiderSitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets"
+    },
+    {
+      "name": "JumpSpiderCall",
+      "type": "procedure",
+      "sortid": 20,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jump_spider_call",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/vanillagourmet/procedures/JumpSpiderCallProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets"
+    },
+    {
+      "name": "SpiderVariant",
+      "type": "procedure",
+      "sortid": 21,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spider_variant",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/SpiderVariantProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets"
+    },
+    {
+      "name": "SpiderBite",
+      "type": "procedure",
+      "sortid": 22,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spider_bite",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/SpiderBiteProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets"
+    },
+    {
+      "name": "Abomination",
+      "type": "animatedentity",
+      "sortid": 23,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "abomination",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/client/renderer/AbominationRenderer.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/abomination_spawn_egg.json",
+          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/abomination_biome_modifier.json",
+          "src/main/java/vanillagourmet/entity/AbominationEntity.java",
+          "src/main/java/vanillagourmet/entity/layer/AbominationLayer.java",
+          "src/main/java/vanillagourmet/entity/model/AbominationModel.java"
+        ]
+      },
+      "path": "~/Mobs/Hostile"
     }
   ],
   "variable_elements": [],
@@ -321,6 +443,7 @@
       "block.vanilla_gourmet.candyblock": "Candy Block",
       "subtitles.philllober": "None",
       "item.vanilla_gourmet.cave_bulker_spawn_egg": "Cave Bulker Spawn Egg",
+      "item.vanilla_gourmet.jump_spider_spawn_egg": "Jump Spider Spawn Egg",
       "entity.vanilla_gourmet.bulker": "Bulker",
       "advancements.bulker_a.title": "Armored!",
       "fluid.vanilla_gourmet.chocolate": "Chocolate",
@@ -328,10 +451,13 @@
       "item.vanilla_gourmet.vanillagourmet": "Vanillagourmet Portal Igniter",
       "item.vanilla_gourmet.bulker_spawn_egg": "Bulker Spawn Egg",
       "subtitles.weruletheworld": "none",
+      "entity.vanilla_gourmet.jump_spider": "Jump Spider",
       "biome.vanilla_gourmet.chocolate_land": "Chocolate Land",
+      "item.vanilla_gourmet.abomination_spawn_egg": "Abomination Spawn Egg",
       "block.vanilla_gourmet.chocolateblock": "Chocolate",
       "block.vanilla_gourmet.chocolate": "Chocolate",
       "advancements.bulker_a.descr": "You found a Cave Bulker!",
+      "entity.vanilla_gourmet.abomination": "Abomination",
       "advancements.intro.title": "Welcome to Vanilla Gourmet!"
     }
   },
@@ -364,6 +490,10 @@
           },
           {
             "name": "Neutral",
+            "children": []
+          },
+          {
+            "name": "Hostile",
             "children": []
           }
         ]
