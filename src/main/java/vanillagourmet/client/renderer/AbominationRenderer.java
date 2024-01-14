@@ -19,7 +19,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 public class AbominationRenderer extends GeoEntityRenderer<AbominationEntity> {
 	public AbominationRenderer(EntityRendererProvider.Context renderManager) {
 		super(renderManager, new AbominationModel());
-		this.shadowRadius = 0.8f;
+		this.shadowRadius = 0.6f;
 		this.addRenderLayer(new AbominationLayer(this));
 	}
 

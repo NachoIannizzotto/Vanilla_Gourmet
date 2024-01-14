@@ -41,7 +41,7 @@ public class VanillaGourmetModEntities {
 	public static final RegistryObject<EntityType<AbominationEntity>> ABOMINATION = register("abomination",
 			EntityType.Builder.<AbominationEntity>of(AbominationEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32).setUpdateInterval(3).setCustomClientFactory(AbominationEntity::new)
 
-					.sized(0.6f, 4f));
+					.sized(0.5f, 3f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));

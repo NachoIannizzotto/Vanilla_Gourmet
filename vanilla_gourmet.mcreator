@@ -199,11 +199,11 @@
       "registry_name": "cave_bulker",
       "metadata": {
         "files": [
-          "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java",
-          "src/main/java/vanillagourmet/entity/model/CaveBulkerModel.java",
           "src/main/java/vanillagourmet/client/renderer/CaveBulkerRenderer.java",
+          "src/main/java/vanillagourmet/entity/model/CaveBulkerModel.java",
           "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/cave_bulker_biome_modifier.json",
-          "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json"
+          "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json",
+          "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java"
         ]
       },
       "path": "~/Mobs/Neutral"
@@ -423,12 +423,12 @@
       "registry_name": "abomination",
       "metadata": {
         "files": [
-          "src/main/java/vanillagourmet/client/renderer/AbominationRenderer.java",
-          "src/main/resources/assets/vanilla_gourmet/models/item/abomination_spawn_egg.json",
           "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/abomination_biome_modifier.json",
-          "src/main/java/vanillagourmet/entity/AbominationEntity.java",
+          "src/main/java/vanillagourmet/entity/model/AbominationModel.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/abomination_spawn_egg.json",
           "src/main/java/vanillagourmet/entity/layer/AbominationLayer.java",
-          "src/main/java/vanillagourmet/entity/model/AbominationModel.java"
+          "src/main/java/vanillagourmet/entity/AbominationEntity.java",
+          "src/main/java/vanillagourmet/client/renderer/AbominationRenderer.java"
         ]
       },
       "path": "~/Mobs/Hostile"
