@@ -1,0 +1,17 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "plains",
+    "sunflower_plains",
+    "flower_forest",
+    "birch_forest",
+    "old_growth_birch_forest",
+    "forest"
+  ],
+  "spawners": {
+    "type": "vanilla_gourmet:goose",
+    "weight": 70,
+    "minCount": 1,
+    "maxCount": 6
+  }
+}

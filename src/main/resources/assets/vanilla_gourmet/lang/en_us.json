@@ -1,5 +1,6 @@
 {
   "entity.vanilla_gourmet.cave_bulker": "Cave Bulker",
+  "item.vanilla_gourmet.goose_spawn_egg": "Goose Spawn Egg",
   "advancements.intro.descr": "Enjoy this adventure!",
   "block.vanilla_gourmet.candyblock": "Candy Block",
   "subtitles.philllober": "None",
@@ -13,6 +14,7 @@
   "item.vanilla_gourmet.bulker_spawn_egg": "Bulker Spawn Egg",
   "subtitles.weruletheworld": "none",
   "entity.vanilla_gourmet.jump_spider": "Jump Spider",
+  "entity.vanilla_gourmet.goose": "Goose",
   "biome.vanilla_gourmet.chocolate_land": "Chocolate Land",
   "item.vanilla_gourmet.abomination_spawn_egg": "Abomination Spawn Egg",
   "block.vanilla_gourmet.chocolateblock": "Chocolate",

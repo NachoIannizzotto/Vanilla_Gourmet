@@ -1,6 +1,7 @@
 package vanillagourmet.init;
 
 import vanillagourmet.entity.JumpSpiderEntity;
+import vanillagourmet.entity.GooseEntity;
 import vanillagourmet.entity.CaveBulkerEntity;
 import vanillagourmet.entity.BulkerEntity;
 import vanillagourmet.entity.AbominationEntity;
@@ -36,6 +37,13 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof AbominationEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof GooseEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

@@ -5,6 +5,7 @@
 package vanillagourmet.init;
 
 import vanillagourmet.entity.JumpSpiderEntity;
+import vanillagourmet.entity.GooseEntity;
 import vanillagourmet.entity.CaveBulkerEntity;
 import vanillagourmet.entity.BulkerEntity;
 import vanillagourmet.entity.AbominationEntity;
@@ -42,6 +43,10 @@ public class VanillaGourmetModEntities {
 			EntityType.Builder.<AbominationEntity>of(AbominationEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(32).setUpdateInterval(3).setCustomClientFactory(AbominationEntity::new)
 
 					.sized(0.5f, 3f));
+	public static final RegistryObject<EntityType<GooseEntity>> GOOSE = register("goose",
+			EntityType.Builder.<GooseEntity>of(GooseEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GooseEntity::new)
+
+					.sized(0.6f, 0.8f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
@@ -54,6 +59,7 @@ public class VanillaGourmetModEntities {
 			CaveBulkerEntity.init();
 			JumpSpiderEntity.init();
 			AbominationEntity.init();
+			GooseEntity.init();
 		});
 	}
 
@@ -63,5 +69,6 @@ public class VanillaGourmetModEntities {
 		event.put(CAVE_BULKER.get(), CaveBulkerEntity.createAttributes().build());
 		event.put(JUMP_SPIDER.get(), JumpSpiderEntity.createAttributes().build());
 		event.put(ABOMINATION.get(), AbominationEntity.createAttributes().build());
+		event.put(GOOSE.get(), GooseEntity.createAttributes().build());
 	}
 }

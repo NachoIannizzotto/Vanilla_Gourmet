@@ -28,6 +28,7 @@ public class VanillaGourmetModItems {
 	public static final RegistryObject<Item> CAVE_BULKER_SPAWN_EGG = REGISTRY.register("cave_bulker_spawn_egg", () -> new ForgeSpawnEggItem(VanillaGourmetModEntities.CAVE_BULKER, -16751002, -16777165, new Item.Properties()));
 	public static final RegistryObject<Item> JUMP_SPIDER_SPAWN_EGG = REGISTRY.register("jump_spider_spawn_egg", () -> new ForgeSpawnEggItem(VanillaGourmetModEntities.JUMP_SPIDER, -10092544, -1, new Item.Properties()));
 	public static final RegistryObject<Item> ABOMINATION_SPAWN_EGG = REGISTRY.register("abomination_spawn_egg", () -> new ForgeSpawnEggItem(VanillaGourmetModEntities.ABOMINATION, -10074433, -13891779, new Item.Properties()));
+	public static final RegistryObject<Item> GOOSE_SPAWN_EGG = REGISTRY.register("goose_spawn_egg", () -> new ForgeSpawnEggItem(VanillaGourmetModEntities.GOOSE, -1, -26368, new Item.Properties()));
 
 	private static RegistryObject<Item> block(RegistryObject<Block> block) {
 		return REGISTRY.register(block.getId().getPath(), () -> new BlockItem(block.get(), new Item.Properties()));
