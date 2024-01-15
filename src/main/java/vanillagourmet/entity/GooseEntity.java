@@ -29,7 +29,6 @@ import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.FollowMobGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
@@ -98,7 +97,7 @@ public class GooseEntity extends Animal implements GeoEntity {
 
 	@Override
 	protected float getStandingEyeHeight(Pose poseIn, EntityDimensions sizeIn) {
-		return 0.6F;
+		return 0.7F;
 	}
 
 	@Override
@@ -112,18 +111,17 @@ public class GooseEntity extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.3, true) {
 			@Override
 			protected double getAttackReachSqr(LivingEntity entity) {
-				return 1;
+				return 4;
 			}
 		});
 		this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(3, new TemptGoal(this, 1, Ingredient.of(Items.BREAD), false));
-		this.goalSelector.addGoal(4, new FollowMobGoal(this, 1, (float) 10, (float) 5));
-		this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1.2));
-		this.goalSelector.addGoal(6, new RandomSwimmingGoal(this, 1.2, 40));
-		this.goalSelector.addGoal(7, new BreedGoal(this, 1.2));
-		this.goalSelector.addGoal(8, new EatBlockGoal(this));
-		this.goalSelector.addGoal(9, new RandomLookAroundGoal(this));
-		this.goalSelector.addGoal(10, new FloatGoal(this));
+		this.goalSelector.addGoal(4, new RandomStrollGoal(this, 1.2));
+		this.goalSelector.addGoal(5, new RandomSwimmingGoal(this, 1.2, 40));
+		this.goalSelector.addGoal(6, new BreedGoal(this, 1.2));
+		this.goalSelector.addGoal(7, new EatBlockGoal(this));
+		this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(9, new FloatGoal(this));
 	}
 
 	@Override

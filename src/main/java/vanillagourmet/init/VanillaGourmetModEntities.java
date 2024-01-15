@@ -46,7 +46,7 @@ public class VanillaGourmetModEntities {
 	public static final RegistryObject<EntityType<GooseEntity>> GOOSE = register("goose",
 			EntityType.Builder.<GooseEntity>of(GooseEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GooseEntity::new)
 
-					.sized(0.6f, 0.8f));
+					.sized(0.6f, 0.9f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));

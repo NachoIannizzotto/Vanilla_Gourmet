@@ -199,11 +199,11 @@
       "registry_name": "cave_bulker",
       "metadata": {
         "files": [
-          "src/main/java/vanillagourmet/client/renderer/CaveBulkerRenderer.java",
+          "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java",
           "src/main/java/vanillagourmet/entity/model/CaveBulkerModel.java",
+          "src/main/java/vanillagourmet/client/renderer/CaveBulkerRenderer.java",
           "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/cave_bulker_biome_modifier.json",
-          "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json",
-          "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java"
+          "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json"
         ]
       },
       "path": "~/Mobs/Neutral"
