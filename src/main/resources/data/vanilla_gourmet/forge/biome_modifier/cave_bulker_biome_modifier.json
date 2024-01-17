@@ -1,0 +1,13 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": [
+    "lush_caves",
+    "dripstone_caves"
+  ],
+  "spawners": {
+    "type": "vanilla_gourmet:cave_bulker",
+    "weight": 90,
+    "minCount": 1,
+    "maxCount": 3
+  }
+}

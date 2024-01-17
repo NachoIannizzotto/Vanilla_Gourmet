@@ -2,6 +2,9 @@ package vanillagourmet.procedures;
 
 import vanillagourmet.entity.CaveBulkerEntity;
 
+import vanillagourmet.VanillaGourmetMod;
+
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.entity.TamableAnimal;
@@ -12,7 +15,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
 
 public class CaveBulkerCallProcedure {
-	public static void execute(Entity entity, Entity sourceentity) {
+	public static void execute(LevelAccessor world, Entity entity, Entity sourceentity) {
 		if (entity == null || sourceentity == null)
 			return;
 		if (entity instanceof TamableAnimal _tamIsTamedBy && sourceentity instanceof LivingEntity _livEnt ? _tamIsTamedBy.isOwnedBy(_livEnt) : false) {
@@ -27,10 +30,12 @@ public class CaveBulkerCallProcedure {
 					}
 					if (entity instanceof CaveBulkerEntity _datEntSetL)
 						_datEntSetL.getEntityData().set(CaveBulkerEntity.DATA_bulkerSit, false);
-					if (entity instanceof CaveBulkerEntity) {
-						((CaveBulkerEntity) entity).setAnimation("empty");
-					}
-				} else if ((entity instanceof CaveBulkerEntity _datEntL7 && _datEntL7.getEntityData().get(CaveBulkerEntity.DATA_bulkerSit)) == false) {
+					VanillaGourmetMod.queueServerWork(1, () -> {
+						if (entity instanceof CaveBulkerEntity) {
+							((CaveBulkerEntity) entity).setAnimation("empty");
+						}
+					});
+				} else if ((entity instanceof CaveBulkerEntity _datEntL8 && _datEntL8.getEntityData().get(CaveBulkerEntity.DATA_bulkerSit)) == false) {
 					{
 						Entity _ent = sourceentity;
 						if (!_ent.level().isClientSide() && _ent.getServer() != null) {
@@ -40,9 +45,11 @@ public class CaveBulkerCallProcedure {
 					}
 					if (entity instanceof CaveBulkerEntity _datEntSetL)
 						_datEntSetL.getEntityData().set(CaveBulkerEntity.DATA_bulkerSit, true);
-					if (entity instanceof CaveBulkerEntity) {
-						((CaveBulkerEntity) entity).setAnimation("sit");
-					}
+					VanillaGourmetMod.queueServerWork(1, () -> {
+						if (entity instanceof CaveBulkerEntity) {
+							((CaveBulkerEntity) entity).setAnimation("sit");
+						}
+					});
 				}
 			} else {
 				{

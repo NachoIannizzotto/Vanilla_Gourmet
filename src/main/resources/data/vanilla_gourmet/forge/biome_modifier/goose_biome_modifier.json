@@ -12,6 +12,6 @@
     "type": "vanilla_gourmet:goose",
     "weight": 70,
     "minCount": 1,
-    "maxCount": 6
+    "maxCount": 4
   }
 }
