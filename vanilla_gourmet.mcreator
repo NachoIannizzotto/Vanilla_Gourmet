@@ -202,7 +202,6 @@
           "src/main/java/vanillagourmet/entity/CaveBulkerEntity.java",
           "src/main/java/vanillagourmet/entity/model/CaveBulkerModel.java",
           "src/main/java/vanillagourmet/client/renderer/CaveBulkerRenderer.java",
-          "src/main/resources/data/vanilla_gourmet/forge/biome_modifier/cave_bulker_biome_modifier.json",
           "src/main/resources/assets/vanilla_gourmet/models/item/cave_bulker_spawn_egg.json"
         ]
       },
@@ -299,6 +298,10 @@
           "src/main/java/vanillagourmet/procedures/CaveBulkerAchievementProcedure.java"
         ],
         "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
           {
             "name": "sourceentity",
             "type": "entity"
@@ -450,6 +453,26 @@
         ]
       },
       "path": "~/Mobs/Neutral/Goose"
+    },
+    {
+      "name": "JumpSpiderEntityDies",
+      "type": "procedure",
+      "sortid": 25,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "jump_spider_entity_dies",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/JumpSpiderEntityDiesProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets"
     }
   ],
   "variable_elements": [],

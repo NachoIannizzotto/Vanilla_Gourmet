@@ -4698,6 +4698,83 @@
 					}
 				}
 			}
+		},
+		"jumpspider.sit": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.41667,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [-37.5, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0.7, 0]
+					}
+				},
+				"legL1": {
+					"rotation": {
+						"vector": [5, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.18459, 0.40211]
+					}
+				},
+				"legL2": {
+					"position": {
+						"vector": [0, 0.10876, 0.79335]
+					}
+				},
+				"legL3": {
+					"rotation": {
+						"vector": [-20, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.09789, 0.18459]
+					}
+				},
+				"legL4": {
+					"rotation": {
+						"vector": [10, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0.19547, -0.42417]
+					}
+				},
+				"legR1": {
+					"rotation": {
+						"vector": [5, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.18459, 0.40211]
+					}
+				},
+				"legR2": {
+					"position": {
+						"vector": [0, 0.10876, 0.79335]
+					}
+				},
+				"legR3": {
+					"rotation": {
+						"vector": [-22.5, 0, 0]
+					},
+					"position": {
+						"vector": [0, -0.09789, 0.18459]
+					}
+				},
+				"legR4": {
+					"rotation": {
+						"vector": [10, 0, 0]
+					},
+					"position": {
+						"vector": [0, 0.19547, -0.42417]
+					}
+				},
+				"head": {
+					"position": {
+						"vector": [0, 0.6, 0]
+					}
+				}
+			}
 		}
 	},
 	"geckolib_format_version": 2
