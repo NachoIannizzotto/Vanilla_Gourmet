@@ -337,7 +337,27 @@ public class GooseEntity extends TamableAnimal implements GeoEntity {
 				return super.canContinueToUse() && GooseCallProcedure.execute(entity);
 			}
 		});
-		this.goalSelector.addGoal(11, new RandomLookAroundGoal(this));
+		this.goalSelector.addGoal(11, new RandomLookAroundGoal(this) {
+			@Override
+			public boolean canUse() {
+				double x = GooseEntity.this.getX();
+				double y = GooseEntity.this.getY();
+				double z = GooseEntity.this.getZ();
+				Entity entity = GooseEntity.this;
+				Level world = GooseEntity.this.level();
+				return super.canUse() && GooseCallProcedure.execute(entity);
+			}
+
+			@Override
+			public boolean canContinueToUse() {
+				double x = GooseEntity.this.getX();
+				double y = GooseEntity.this.getY();
+				double z = GooseEntity.this.getZ();
+				Entity entity = GooseEntity.this;
+				Level world = GooseEntity.this.level();
+				return super.canContinueToUse() && GooseCallProcedure.execute(entity);
+			}
+		});
 		this.goalSelector.addGoal(12, new FloatGoal(this));
 	}
 
