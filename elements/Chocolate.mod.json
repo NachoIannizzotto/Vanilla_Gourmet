@@ -33,9 +33,9 @@
     "specialInformation": {
       "fixedValue": []
     },
-    "resistance": 100.0,
+    "resistance": 1000.0,
     "luminance": 0,
-    "lightOpacity": 1,
+    "lightOpacity": 15,
     "emissiveRendering": false,
     "tickRate": 0,
     "flammability": 0,

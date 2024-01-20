@@ -4,6 +4,7 @@
  */
 package vanillagourmet.init;
 
+import vanillagourmet.entity.KreeperEntity;
 import vanillagourmet.entity.JumpSpiderEntity;
 import vanillagourmet.entity.GooseEntity;
 import vanillagourmet.entity.CaveBulkerEntity;
@@ -47,6 +48,10 @@ public class VanillaGourmetModEntities {
 			EntityType.Builder.<GooseEntity>of(GooseEntity::new, MobCategory.CREATURE).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(GooseEntity::new)
 
 					.sized(0.6f, 0.9f));
+	public static final RegistryObject<EntityType<KreeperEntity>> KREEPER = register("kreeper",
+			EntityType.Builder.<KreeperEntity>of(KreeperEntity::new, MobCategory.MONSTER).setShouldReceiveVelocityUpdates(true).setTrackingRange(64).setUpdateInterval(3).setCustomClientFactory(KreeperEntity::new)
+
+					.sized(0.7f, 0.6f));
 
 	private static <T extends Entity> RegistryObject<EntityType<T>> register(String registryname, EntityType.Builder<T> entityTypeBuilder) {
 		return REGISTRY.register(registryname, () -> (EntityType<T>) entityTypeBuilder.build(registryname));
@@ -60,6 +65,7 @@ public class VanillaGourmetModEntities {
 			JumpSpiderEntity.init();
 			AbominationEntity.init();
 			GooseEntity.init();
+			KreeperEntity.init();
 		});
 	}
 
@@ -70,5 +76,6 @@ public class VanillaGourmetModEntities {
 		event.put(JUMP_SPIDER.get(), JumpSpiderEntity.createAttributes().build());
 		event.put(ABOMINATION.get(), AbominationEntity.createAttributes().build());
 		event.put(GOOSE.get(), GooseEntity.createAttributes().build());
+		event.put(KREEPER.get(), KreeperEntity.createAttributes().build());
 	}
 }

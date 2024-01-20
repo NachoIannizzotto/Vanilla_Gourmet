@@ -352,6 +352,10 @@
           {
             "name": "sourceentity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -527,6 +531,106 @@
         ]
       },
       "path": "~/Mobs/Neutral/Goose"
+    },
+    {
+      "name": "Kreeper",
+      "type": "animatedentity",
+      "sortid": 28,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kreeper",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/client/renderer/KreeperRenderer.java",
+          "src/main/java/vanillagourmet/entity/KreeperEntity.java",
+          "src/main/java/vanillagourmet/entity/model/KreeperModel.java",
+          "src/main/resources/assets/vanilla_gourmet/models/item/kreeper_spawn_egg.json"
+        ]
+      },
+      "path": "~/Mobs/Pets/kreeper"
+    },
+    {
+      "name": "Kreepersit",
+      "type": "procedure",
+      "sortid": 29,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kreepersit",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/KreepersitProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets/kreeper"
+    },
+    {
+      "name": "Kreepercall",
+      "type": "procedure",
+      "sortid": 30,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kreepercall",
+      "metadata": {
+        "return_type": "logic",
+        "files": [
+          "src/main/java/vanillagourmet/procedures/KreepercallProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Mobs/Pets/kreeper"
+    },
+    {
+      "name": "Kreeperadv",
+      "type": "achievement",
+      "sortid": 31,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kreeperadv",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/vanilla_gourmet/advancements/kreeperadv.json"
+        ]
+      },
+      "path": "~/Achievements/MobAchievements/Pets/Kreeper"
+    },
+    {
+      "name": "Kreepergrant",
+      "type": "procedure",
+      "sortid": 32,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "kreepergrant",
+      "metadata": {
+        "files": [
+          "src/main/java/vanillagourmet/procedures/KreepergrantProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Achievements/MobAchievements/Pets/Kreeper"
     }
   ],
   "variable_elements": [],
@@ -537,10 +641,16 @@
       "item.vanilla_gourmet.goose_spawn_egg": "Goose Spawn Egg",
       "advancements.intro.descr": "Enjoy this adventure!",
       "block.vanilla_gourmet.candyblock": "Candy Block",
-      "subtitles.philllober": "None",
       "item.vanilla_gourmet.cave_bulker_spawn_egg": "Cave Bulker Spawn Egg",
-      "item.vanilla_gourmet.jump_spider_spawn_egg": "Jump Spider Spawn Egg",
       "entity.vanilla_gourmet.bulker": "Bulker",
+      "advancements.kreeperadv.descr": "You tamed Kreeper, Siegreich\u0027s pet!",
+      "item.vanilla_gourmet.kreeper_spawn_egg": "Kreeper Spawn Egg",
+      "block.vanilla_gourmet.chocolate": "Chocolate",
+      "block.vanilla_gourmet.chocolateblock": "Chocolate",
+      "advancements.kreeperadv.title": "You\u0027ve got a friend in me!",
+      "entity.vanilla_gourmet.kreeper": "Kreeper",
+      "subtitles.philllober": "None",
+      "item.vanilla_gourmet.jump_spider_spawn_egg": "Jump Spider Spawn Egg",
       "advancements.bulker_a.title": "Armored!",
       "item.vanilla_gourmet.vanillagourmet": "Vanillagourmet Portal Igniter",
       "item.vanilla_gourmet.chocolate_bucket": "Chocolate Bucket",
@@ -551,8 +661,6 @@
       "entity.vanilla_gourmet.goose": "Goose",
       "biome.vanilla_gourmet.chocolate_land": "Chocolate Land",
       "item.vanilla_gourmet.abomination_spawn_egg": "Abomination Spawn Egg",
-      "block.vanilla_gourmet.chocolate": "Chocolate",
-      "block.vanilla_gourmet.chocolateblock": "Chocolate",
       "advancements.bulker_a.descr": "You found a Cave Bulker!",
       "entity.vanilla_gourmet.abomination": "Abomination",
       "advancements.intro.title": "Welcome to Vanilla Gourmet!"
@@ -562,10 +670,16 @@
       "item.vanilla_gourmet.goose_spawn_egg": "Huevo generador de Ganso",
       "advancements.intro.descr": "Disfruta esta aventura!",
       "block.vanilla_gourmet.candyblock": "Bloque de Caramelo",
-      "subtitles.philllober": "None",
       "item.vanilla_gourmet.cave_bulker_spawn_egg": "Huevo generador de Bulker de cueva",
-      "item.vanilla_gourmet.jump_spider_spawn_egg": "Huevo generador de Araña Saltarina",
       "entity.vanilla_gourmet.bulker": "Bulker",
+      "advancements.kreeperadv.descr": "You tamed Kreeper, Siegreich\u0027s pet!",
+      "item.vanilla_gourmet.kreeper_spawn_egg": "Kreeper Spawn Egg",
+      "block.vanilla_gourmet.chocolate": "Chocolate",
+      "block.vanilla_gourmet.chocolateblock": "Chocolate",
+      "advancements.kreeperadv.title": "You\u0027ve got a friend in me!",
+      "entity.vanilla_gourmet.kreeper": "Kreeper",
+      "subtitles.philllober": "None",
+      "item.vanilla_gourmet.jump_spider_spawn_egg": "Huevo generador de Araña Saltarina",
       "advancements.bulker_a.title": "Acorazado!",
       "item.vanilla_gourmet.vanillagourmet": "Vanillagourmet Portal Igniter",
       "item.vanilla_gourmet.chocolate_bucket": "Balde de Chocolate",
@@ -576,8 +690,6 @@
       "entity.vanilla_gourmet.goose": "Ganso",
       "biome.vanilla_gourmet.chocolate_land": "Tierra del chocolate",
       "item.vanilla_gourmet.abomination_spawn_egg": "Huevo generador de Abominación",
-      "block.vanilla_gourmet.chocolate": "Chocolate",
-      "block.vanilla_gourmet.chocolateblock": "Chocolate",
       "advancements.bulker_a.descr": "Encontraste un Bulker de cueva!",
       "entity.vanilla_gourmet.abomination": "Abominación",
       "advancements.intro.title": "Bienvenido a Vanilla Gourmet!"
@@ -591,7 +703,17 @@
         "children": [
           {
             "name": "MobAchievements",
-            "children": []
+            "children": [
+              {
+                "name": "Pets",
+                "children": [
+                  {
+                    "name": "Kreeper",
+                    "children": []
+                  }
+                ]
+              }
+            ]
           }
         ]
       },
@@ -608,7 +730,12 @@
         "children": [
           {
             "name": "Pets",
-            "children": []
+            "children": [
+              {
+                "name": "kreeper",
+                "children": []
+              }
+            ]
           },
           {
             "name": "Neutral",

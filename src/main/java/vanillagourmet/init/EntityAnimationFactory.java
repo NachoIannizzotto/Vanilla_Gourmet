@@ -1,5 +1,6 @@
 package vanillagourmet.init;
 
+import vanillagourmet.entity.KreeperEntity;
 import vanillagourmet.entity.JumpSpiderEntity;
 import vanillagourmet.entity.GooseEntity;
 import vanillagourmet.entity.CaveBulkerEntity;
@@ -44,6 +45,13 @@ public class EntityAnimationFactory {
 				}
 			}
 			if (event.getEntity() instanceof GooseEntity syncable) {
+				String animation = syncable.getSyncedAnimation();
+				if (!animation.equals("undefined")) {
+					syncable.setAnimation("undefined");
+					syncable.animationprocedure = animation;
+				}
+			}
+			if (event.getEntity() instanceof KreeperEntity syncable) {
 				String animation = syncable.getSyncedAnimation();
 				if (!animation.equals("undefined")) {
 					syncable.setAnimation("undefined");

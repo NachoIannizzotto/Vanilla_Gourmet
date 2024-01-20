@@ -4,6 +4,7 @@
  */
 package vanillagourmet.init;
 
+import vanillagourmet.client.renderer.KreeperRenderer;
 import vanillagourmet.client.renderer.JumpSpiderRenderer;
 import vanillagourmet.client.renderer.GooseRenderer;
 import vanillagourmet.client.renderer.CaveBulkerRenderer;
@@ -24,5 +25,6 @@ public class VanillaGourmetModEntityRenderers {
 		event.registerEntityRenderer(VanillaGourmetModEntities.JUMP_SPIDER.get(), JumpSpiderRenderer::new);
 		event.registerEntityRenderer(VanillaGourmetModEntities.ABOMINATION.get(), AbominationRenderer::new);
 		event.registerEntityRenderer(VanillaGourmetModEntities.GOOSE.get(), GooseRenderer::new);
+		event.registerEntityRenderer(VanillaGourmetModEntities.KREEPER.get(), KreeperRenderer::new);
 	}
 }

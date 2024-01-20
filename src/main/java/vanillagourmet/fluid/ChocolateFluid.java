@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.LiquidBlock;
 
 public abstract class ChocolateFluid extends ForgeFlowingFluid {
 	public static final ForgeFlowingFluid.Properties PROPERTIES = new ForgeFlowingFluid.Properties(() -> VanillaGourmetModFluidTypes.CHOCOLATE_TYPE.get(), () -> VanillaGourmetModFluids.CHOCOLATE.get(),
-			() -> VanillaGourmetModFluids.FLOWING_CHOCOLATE.get()).explosionResistance(100f).tickRate(10).levelDecreasePerBlock(2).slopeFindDistance(3).bucket(() -> VanillaGourmetModItems.CHOCOLATE_BUCKET.get())
+			() -> VanillaGourmetModFluids.FLOWING_CHOCOLATE.get()).explosionResistance(1000f).tickRate(10).levelDecreasePerBlock(2).slopeFindDistance(3).bucket(() -> VanillaGourmetModItems.CHOCOLATE_BUCKET.get())
 			.block(() -> (LiquidBlock) VanillaGourmetModBlocks.CHOCOLATE.get());
 
 	private ChocolateFluid() {
